@@ -6,7 +6,7 @@
 
 ## 🔗 Live Demo
 
-> _Deploy on Streamlit Cloud to get a live link — see [Deployment](#-deployment) section below._
+> _Deploy on Streamlit Cloud to get a live link — https://telecom-customer-churn-prediction-glpauttdpthspgnktyzgbe.streamlit.app/
 
 ---
 
