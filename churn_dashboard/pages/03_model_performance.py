@@ -201,9 +201,12 @@ def render(df, filters):
                     0.0174, 0.0152, 0.0113, 0.0098, 0.0076,
                 ],
             }).sort_values("Importance", ascending=False)
-        # Rename for display
-        pi_plot = pi_df[["Feature", "Importance"]].copy()
-        pi_plot.columns = ["Feature", "Importance"]
+        # Handle both live ("Importance Mean") and fallback ("Importance") column names
+        if "Importance Mean" in pi_df.columns:
+            pi_plot = pi_df[["Feature", "Importance Mean"]].copy()
+            pi_plot.columns = ["Feature", "Importance"]
+        else:
+            pi_plot = pi_df[["Feature", "Importance"]].copy()
         st.plotly_chart(
             feature_importance_chart(pi_plot, top_n=10, title="Permutation Importance (Test Set, F1)"),
             use_container_width=True,
